@@ -1,15 +1,15 @@
 .. _introduction:
 
-==============
- Introduction
-==============
+========================
+Introduction (|version|)
+========================
 
 How To Use This Document
 ------------------------
 
 This guide instructs both novice and experienced users on downloading,
 building and running `CESM2
-<http://www.cesm.ucar.edu/models/cesm2.0>`_.
+<http://www.cesm.ucar.edu/models/cesm2>`_.
 
 CESM2 is built on the `CIME framework <http://github.com/ESMCI/cime>`_.
 
@@ -64,9 +64,9 @@ component, CESM allows researchers to conduct fundamental research
 into the Earth's past, present, and future climate states.
 
 CESM can be run on a number of different `hardware platforms
-<http://www.cesm.ucar.edu/models/cesm2.0/cesm/machines.html>`__, and
+<http://www.cesm.ucar.edu/models/cesm2/cesm/machines.html>`__, and
 has a relatively flexible design with respect to `processor layout
-<http://esmci.github.io/cime/users_guide/pes-threads.html>`__
+<http://esmci.github.io/cime/versions/master/html/users_guide/pes-threads.html>`__
 of components.
 
 The CESM project is a cooperative effort among U.S. climate
@@ -97,7 +97,7 @@ installing and running CESM2.
 
 -  perl 5 
 
--  subversion client (version 1.8 or greater) for downloading CAM, POP, and WW3
+-  subversion client (version 1.8 or greater but less than v1.11) for downloading CAM, POP, and WW3
 
 -  git client (1.8 or greater)
 
@@ -113,7 +113,7 @@ installing and running CESM2.
 
 -  `pnetcdf 1.7.0 is required and 1.8.1 is optional but recommended <http://trac.mcs.anl.gov/projects/parallel-netcdf/>`_
 
--  `Trilinos <http://trilinos.gov/>`_ may be required for certain configurations 
+-  `Trilinos <https://trilinos.github.io/>`_ may be required for certain configurations 
 
 -  `LAPACK <http://www.netlib.org/lapack/>`_ and `BLAS <http://www.netlib.org/blas/>`_
 

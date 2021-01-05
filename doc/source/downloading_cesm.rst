@@ -1,43 +1,44 @@
 .. _downloading:
 
-===================
- Downloading CESM2
-===================
+=============================
+Downloading CESM2 (|version|)
+=============================
 
 Downloading the code and scripts
 --------------------------------
 
 Starting with CESM2, releases are available through a public GitHub
-repository, `http://github.com/ESCOMP/cesm <http://github.com/ESCOMP/cesm>`_. 
+repository, `http://github.com/ESCOMP/CESM <http://github.com/ESCOMP/CESM>`_. 
 
 Access to the code requires both git and Subversion client software in
 place that is compatible with GitHub and our Subversion server
 software.  You will need access to the command line clients, ``git``
-(v1.8 or greater) and ``svn`` (v1.8 or greater).  Currently, our Subversion server
+(v1.8 or greater) and ``svn`` (v1.8 or greater but less than v1.11).  
+Currently, our Subversion server
 software is at version 1.8.17. For more information or to download
-open source tools, visit `Subversion <http://subversion.tigris.org/>`_
+open source tools, visit `Subversion <http://subversion.apache.org/>`_
 and `git downloads <https://git-scm.com/downloads>`_.
 
-With valid git and svn clients installed on the machine where CESM will be
+With valid git and svn clients installed on the machine where CESM2 will be
 built and run, the user may download the latest version of the release
 code:
 
 .. code-block:: console
 
-    git clone -b release-cesm2.0.1 https://github.com/ESCOMP/cesm.git my_cesm_sandbox
+    git clone https://github.com/ESCOMP/CESM.git my_cesm_sandbox
     cd my_cesm_sandbox
 
-To checkout a previous version of CESM, first view the available versions:
+To checkout a previous version of CESM2, first view the available versions:
 
 .. code-block:: console
 
     git tag --list 'release-cesm2*'
 
-To checkout a specific CESM release tag type, for example CESM2.0.0:
+To checkout a specific CESM2 release tag type, for example CESM2.0.1:
 
 .. code-block:: console 
 
-    git checkout release-cesm2.0.0
+    git checkout release-cesm2.0.1
 
 Finally, to checkout all the individual model components,
 run the **checkout_externals** script from /path/to/my_cesm_sandbox.
@@ -49,8 +50,8 @@ run the **checkout_externals** script from /path/to/my_cesm_sandbox.
 The **checkout_externals** script will read the configuration file called ``Externals.cfg`` and
 will download all the external component models and CIME into /path/to/my_cesm_sandbox. 
 
-Details regarding the CESM checkout process are available in the CESM GitHub repo
-`README <http://github.com/ESCOMP/cesm/blob/master/README.rst>`_
+Details regarding the CESM2 checkout process are available in the CESM GitHub repo
+`README <http://github.com/ESCOMP/CESM/blob/master/README.rst>`_
 To see more details regarding the checkout_externals script from the command line, type:
 
 .. code-block:: console
@@ -58,7 +59,12 @@ To see more details regarding the checkout_externals script from the command lin
     ./manage_externals/checkout_externals --help
 
 
-.. warning:: When contacting the Subversion server for the first time, you may need to accept an authentication certification.
+.. warning:: When contacting the Subversion server for the first time, you may need to
+             accept an authentication certification. If you experience problems such as
+             ``checkout_externals`` hanging: Run ``svn ls
+             https://svn-ccsm-models.cgd.ucar.edu/ww3/release_tags``, permanently
+             accepting the certificate when prompted, then retry the CESM download
+             (starting over at the top of these instructions).
 
 .. warning:: If a problem was encountered during checkout_externals, which may happen with an older version of the svn client software, it may appear to have downloaded successfully, but in fact only a partial checkout has occurred. 
 
@@ -76,25 +82,52 @@ columns of output, as in this example:
 
    Processing externals description file : Externals.cfg
    Processing externals description file : Externals_CLM.cfg
+   Processing externals description file : ../Externals_cime.cfg
    Processing externals description file : Externals_POP.cfg
    Processing externals description file : Externals_CISM.cfg
-   Checking status of externals: clm, fates, ptclm, mosart, ww3, cime, cice, pop, cvmix, marbl, cism, source_cism, rtm, cam,
+   Processing externals description file : .gitmodules
+   Processing submodules description file : .gitmodules
+   Processing externals description file : Externals_CAM.cfg
+   Checking status of externals: clm, fates, ptclm, mosart, cime, cmeps, ww3, cice, fms, pop, cvmix, marbl, cism, source_cism, rtm, cdeps, fox, mom, cam, silhs, clubb, pumas, atmos_phys, cosp2, chem_proc, atmos_cubed_sphere, carma, 
        ./cime
+   e-o ./cime/src/drivers/nuopc/
        ./components/cam
+       ./components/cam/chem_proc
+       ./components/cam/src/atmos_phys
+       ./components/cam/src/dynamics/fv3/atmos_cubed_sphere
+       ./components/cam/src/physics/carma/base
+       ./components/cam/src/physics/clubb
+       ./components/cam/src/physics/cosp2/src
+       ./components/cam/src/physics/pumas
+       ./components/cam/src/physics/silhs
+       ./components/cdeps
+       ./components/cdeps/fox
        ./components/cice
        ./components/cism
        ./components/cism/source_cism
        ./components/clm
        ./components/clm/src/fates
        ./components/clm/tools/PTCLM
+   e-o ./components/mom
        ./components/mosart
        ./components/pop
        ./components/pop/externals/CVMix
        ./components/pop/externals/MARBL
        ./components/rtm
        ./components/ww3
+   e-o ./libraries/FMS
 
-You should now have a complete copy of the CESM2 source code in your /path/to/my_cesm_sandbox. 
+
+You should now have a default copy of the CESM2 source code in your /path/to/my_cesm_sandbox.
+
+These components are optional and are not needed to run CESM2.
+
+.. code-block:: console
+
+   e-o ./cime/src/drivers/nuopc/
+   e-o ./components/mom
+   e-o ./libraries/FMS
+
 
 If there were problems obtaining an external, you might instead see something like:
 

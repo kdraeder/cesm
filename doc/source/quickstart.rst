@@ -1,13 +1,13 @@
 .. _quickstart:
 
-====================================
- Quick Start (CESM2 Model Workflow)
-====================================
+============================================
+Quick Start: CESM Model Workflow (|version|)
+============================================
 
 The following quick start guide is for versions of CESM2 that have
 already been ported to the local target machine. CESM2 is built on the
 CIME (Common Infrastructure for Modeling Earth) framework.
-Please refer to the `CIME Porting Documentation <http://esmci.github.io/cime/users_guide/porting-cime.html>`_ if CIME has not
+Please refer to the `CIME Porting Documentation <http://esmci.github.io/cime/versions/master/html/users_guide/porting-cime.html>`_ if CIME has not
 yet been ported to the target machine. 
 
 If you are new to CESM2, please consider reading the
@@ -26,9 +26,9 @@ in the ``my_cesm_sandbox/cime/scripts`` directory
     cd my_cesm_sandbox/cime/scripts
     ./query_config --help
 
-See the `supported component sets <http://www.cesm.ucar.edu/models/cesm2.0/config/compsets.html>`_,
-`supported model resolutions <http://www.cesm.ucar.edu/models/cesm2.0/config/grids.html>`_ and `supported
-machines <http://www.cesm.ucar.edu/models/cesm2.0/config/machines.html>`_ for a complete list of CESM2
+See the `supported component sets <http://www.cesm.ucar.edu/models/cesm2/config/compsets.html>`_,
+`supported model resolutions <http://www.cesm.ucar.edu/models/cesm2/config/grids.html>`_ and `supported
+machines <http://www.cesm.ucar.edu/models/cesm2/config/machines.html>`_ for a complete list of CESM2
 supported component sets, grids and computational platforms.
 
 .. note:: 
@@ -70,12 +70,12 @@ where:
   is a relative or absolute path, the case directory is created there, and the name of the
   case will be the last component of the path. The full path to the case directory will be
   stored in the ``$CASEROOT`` XML variable. See `CESM2 Experiment Casenames
-  <http://www.cesm.ucar.edu/models/cesm2.0/naming_conventions.html#casenames>`_ for
+  <http://www.cesm.ucar.edu/models/cesm2/naming_conventions.html#casenames>`_ for
   details regarding CESM experiment case naming conventions.
 
-- ``COMPSET`` is the `component set <http://www.cesm.ucar.edu/models/cesm2.0/config/compsets.html>`_.
+- ``COMPSET`` is the `component set <http://www.cesm.ucar.edu/models/cesm2/config/compsets.html>`_.
 
-- ``GRID`` is the model `resolution <http://www.cesm.ucar.edu/models/cesm2.0/config/grids.html>`_.
+- ``GRID`` is the model `resolution <http://www.cesm.ucar.edu/models/cesm2/config/grids.html>`_.
 
 Here is an example on NCAR machine cheyenne with the ``$USER`` shell environment variable
 set to your cheyenne login name:
@@ -152,7 +152,7 @@ now are:
       ./xmlquery STOP_OPTION,STOP_N
 
    These default settings can be useful in `troubleshooting
-   <http://esmci.github.io/cime/users_guide/troubleshooting.html>`_ runtime problems
+   <http://esmci.github.io/cime/versions/master/html/users_guide/troubleshooting.html>`_ runtime problems
    before submitting for a longer time, but will not allow the model to run long enough to
    produce monthly history climatology files. In order to produce history files, increase
    the run length to a month or longer:
@@ -197,7 +197,7 @@ comma separated names and no spaces):
 
   ``$DOUT_S_ROOT`` refers to the short term archive path location on local disk.
   This path is used by the case.st_archive script when ``$DOUT_S = TRUE``.
-  See `CESM Model Output File Locations <http://www.cesm.ucar.edu/models/cesm2.0/naming_conventions.html#modelOutputLocations>`_
+  See `CESM Model Output File Locations <http://www.cesm.ucar.edu/models/cesm2/naming_conventions.html#modelOutputLocations>`_
   for details regarding the component model output filenames and locations. 
 
   ``$DOUT_S_ROOT/$CASE`` is the short term archive directory for this case. If ``$DOUT_S`` is
@@ -225,8 +225,7 @@ comma separated names and no spaces):
 
 
 .. _CIME: http://esmci.github.io/cime
-.. _porting: http://esmci.github.io/cime/users_guide/porting-cime
-.. _query_config: http://esmci.github.io/cime/users_guide/introduction-and-overview.html#discovering-available-cases-with-query-config
-.. _create_newcase: http://esmci.github.io/cime/users_guide/create-a-case.html
-.. _xmlchange: http://esmci.github.io/cime/Tools_user/xmlchange.html
-.. _case.setup: http://esmci.github.io/cime/users_guide/setting-up-a-case.html
+.. _query_config: http://esmci.github.io/cime/versions/master/html/users_guide/introduction-and-overview.html#discovering-available-cases-with-query-config
+.. _create_newcase: http://esmci.github.io/cime/versions/master/html/users_guide/create-a-case.html
+.. _xmlchange: http://esmci.github.io/cime/versions/master/html/Tools_user/xmlchange.html
+.. _case.setup: http://esmci.github.io/cime/versions/master/html/users_guide/setting-up-a-case.html
